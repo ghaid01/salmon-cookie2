@@ -110,7 +110,23 @@ renderHeaderRow(table);
 renderDataRows(table);
 renderFooterRow(table);
 
-  
+function submitHandler(event){
+    var location = event.target.name.value;
+    var min = parseInt(event.target.min.value);
+    var max = parseInt(event.target.max.value);
+    var avg = parseFloat(event.target.avgCookies.value);
+
+
+    var newShop = new CookieShop(location,min,max,avg);
+    console.log('newshop',newShop);
+
+    shops.push(newShop);
+    newShop.renderDataRows(table);
+    
+}
+
+var form = document.getElementById('form1');
+form.addEventListener('submit', submitHandler);
 
 
 
